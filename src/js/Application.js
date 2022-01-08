@@ -75,6 +75,7 @@ export default class Application extends EventEmitter {
     }
 
     const getPlanetsData = async () => {
+      this._loading();
       const request = await fetch("https://swapi.boom.dev/api/planets");
       const data = await request.json();
       displayPlanets(data);
