@@ -19,7 +19,7 @@ export default class Application extends EventEmitter {
     //   population: 0,
     // });
     // document.body.querySelector(".main").appendChild(box);
-
+    this._loading();
     this._startLoading();
 
     this.emit(Application.events.READY);
@@ -49,7 +49,8 @@ export default class Application extends EventEmitter {
   _loading() {
     const loadingBar = document.body.querySelector("progress");
   }
-  _load() {
+
+  async _load() {
     function _create({ name, terrain, population }) {
       return `
     <div class="box">
@@ -143,7 +144,7 @@ export default class Application extends EventEmitter {
   }
 
   _stopLoading() {
-    const loadingBar = document.body.querySelector("progress");
-    loadingBar.classList.add("hide");
+    const loadingBar = document.body.getElementsByClassName("progress")[0];
+    loadingBar.style.display = "none";
   }
 }
