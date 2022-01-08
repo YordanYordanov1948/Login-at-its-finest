@@ -142,9 +142,4 @@ export default class Application extends EventEmitter {
   </article>
       `;
   }
-
-  _stopLoading() {
-    const loadingBar = document.body.getElementsByClassName("progress")[0];
-    loadingBar.style.display = "none";
-  }
 }
