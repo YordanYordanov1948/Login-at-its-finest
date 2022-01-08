@@ -144,7 +144,7 @@ export default class Application extends EventEmitter {
   }
 
   _stopLoading() {
-    const loadingBar = document.body.getElementsByClassName("progress")[0];
+    const loadingBar = document.body.getElementsByClassName(".progress")[0];
     loadingBar.style.display = "none";
   }
 }
