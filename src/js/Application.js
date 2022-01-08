@@ -48,7 +48,6 @@ export default class Application extends EventEmitter {
 
   _loading() {
     const loadingBar = document.body.querySelector("progress");
-    loadingBar.style = 100;
   }
 
   async _load() {
