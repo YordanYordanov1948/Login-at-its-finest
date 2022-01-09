@@ -19,7 +19,6 @@ export default class Application extends EventEmitter {
     //   population: 0,
     // });
     // document.body.querySelector(".main").appendChild(box);
-    this._loading();
     this._startLoading();
 
     this.emit(Application.events.READY);
@@ -46,9 +45,7 @@ export default class Application extends EventEmitter {
     `;
   }
 
-  _loading() {
-    const loadingBar = document.body.querySelector("progress");
-  }
+  _loading = document.body.querySelector("progress");
 
   async _load() {
     function _create({ name, terrain, population }) {
@@ -75,7 +72,7 @@ export default class Application extends EventEmitter {
     }
 
     const getPlanetsData = async () => {
-      this._loading();
+      this._loading;
       const request = await fetch("https://swapi.boom.dev/api/planets");
       const data = await request.json();
       displayPlanets(data);
@@ -143,6 +140,7 @@ export default class Application extends EventEmitter {
   </article>
       `;
   }
+
   _stopLoading() {
     const loadingBar = document.body.getElementsByClassName("progress")[0];
     loadingBar.style.display = "none";
